@@ -4,6 +4,7 @@ import { AuthProvider } from "@/context/authContext";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -16,10 +17,17 @@ export default function RootLayout({ children }) {
       <body>
         {" "}
         <AuthProvider>
-          {" "}
-          <NavBar />
-          <ToastContainer />
-          {children}{" "}
+          <Auth0Provider
+            domain="dev-y7sfhgw3mwbhd7lm.us.auth0.com"
+            clientId="NOBU9MH4a4Ptz6yzDDGHBDKFKMU89Ltf"
+            authorizationParams={{
+              redirect_uri: window.location.origin,
+            }}
+          >
+            <NavBar />
+            <ToastContainer />
+            {children}{" "}
+          </Auth0Provider>{" "}
         </AuthProvider>
       </body>
     </html>

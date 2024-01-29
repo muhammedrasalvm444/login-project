@@ -1,5 +1,9 @@
-import Hero from "@/components/Hero";
+import AnimatedComponent from "@/components/AnimatedComponent";
 
 export default function Home() {
-  return <>{/* <Hero /> */}</>;
+  return (
+    <div>
+      <AnimatedComponent />
+    </div>
+  );
 }

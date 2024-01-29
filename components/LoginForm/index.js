@@ -9,6 +9,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const schema = yup
   .object({
@@ -21,6 +22,7 @@ const schema = yup
   .required();
 const LoginForm = () => {
   const { login, loading } = useAuth();
+  const { loginWithRedirect } = useAuth0();
 
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -32,10 +34,8 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    console.log("ssss444", data);
     login({ username: data?.username, password: data?.password });
   };
-  console.log("errors", errors);
   return (
     <div className="flex items-center justify-center h-screen ">
       <div className="w-full max-w-md p-8 border border-black rounded-md shadow-xl">
@@ -139,7 +139,7 @@ const LoginForm = () => {
           sx={{
             backgroundColor: loading ? "gray" : "blue",
             "&:hover": {
-              backgroundColor: loading ? "blue" : "blue", // Adjust hover color as needed
+              backgroundColor: loading ? "gray" : "blue", // Adjust hover color as needed
             },
             color: "white",
             "&.MuiButton-loading .MuiCircularProgress-circle": {

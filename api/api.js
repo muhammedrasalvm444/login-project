@@ -8,7 +8,6 @@ const api = axios.create({
 });
 
 export const login = async (username, password) => {
-  console.log("iuser", username, password);
   try {
     const response = await api.post(
       "/auth/login",
@@ -23,7 +22,6 @@ export const login = async (username, password) => {
 
     return response.data.token;
   } catch (error) {
-    console.log("error", error);
     toast.error(error?.response?.data?.message);
 
     throw error.response?.data || error.message;

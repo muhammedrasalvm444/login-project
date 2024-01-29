@@ -13,16 +13,13 @@ const AuthProvider = ({ children }) => {
     isBrowser ? localStorage.getItem("token") || null : null
   );
   const [loading, setLoading] = useState(false);
-  console.log("load", loading);
 
   const login = async ({ username, password }) => {
     setLoading(true);
 
-    console.log("eeee", username, password);
     try {
       setLoading(true);
       const token = await apiLogin(username, password);
-      console.log("token", token);
       localStorage.setItem("token", token);
       setToken(token);
       setLoading(false);
