@@ -8,7 +8,7 @@ const AnimatedComponent = () => {
       {/* Animated element in the center */}
       <div className="bg-white p-8 rounded-md shadow-md animate__animated animate__bounceIn">
         <h1 className="text-2xl font-bold text-gray-800">
-          Welcome to Your Website!
+          Welcome to our Website!
         </h1>
         <p className="text-gray-600"></p>
       </div>

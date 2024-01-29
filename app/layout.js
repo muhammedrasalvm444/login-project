@@ -17,17 +17,16 @@ export default function RootLayout({ children }) {
       <body>
         {" "}
         <AuthProvider>
-          <Auth0Provider
+          {/* <Auth0Provider
             domain="dev-y7sfhgw3mwbhd7lm.us.auth0.com"
             clientId="NOBU9MH4a4Ptz6yzDDGHBDKFKMU89Ltf"
             authorizationParams={{
               redirect_uri: window.location.origin,
             }}
-          >
-            <NavBar />
-            <ToastContainer />
-            {children}{" "}
-          </Auth0Provider>{" "}
+          > */}
+          <NavBar />
+          <ToastContainer />
+          {children} {/* </Auth0Provider>{" "} */}
         </AuthProvider>
       </body>
     </html>

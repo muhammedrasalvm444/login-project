@@ -3,10 +3,13 @@
 import { createContext, useContext, useState } from "react";
 import { login as apiLogin } from "../api/api";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const router = useRouter();
+
   const isBrowser = typeof window !== "undefined";
 
   const [token, setToken] = useState(
@@ -33,10 +36,11 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     setToken(null);
     toast.success("You have successfully logged out!");
+    router.push("/login");
   };
 
   return (
-    <AuthContext.Provider value={{ token, login, logout, loading }}>
+    <AuthContext.Provider value={{ token, login, logout, loading, setToken }}>
       {children}
     </AuthContext.Provider>
   );

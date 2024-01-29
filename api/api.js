@@ -18,7 +18,7 @@ export const login = async (username, password) => {
         },
       }
     );
-    toast.success("you are successfully logged in");
+    toast.success("You are successfully logged in");
 
     return response.data.token;
   } catch (error) {
