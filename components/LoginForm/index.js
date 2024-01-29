@@ -7,7 +7,6 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import SaveIcon from "@mui/icons-material/Save";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -24,7 +23,6 @@ const LoginForm = () => {
   const { login, loading } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
-  console.log("loginform");
   const {
     register,
     handleSubmit,
@@ -33,13 +31,15 @@ const LoginForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) =>
+  const onSubmit = (data) => {
+    console.log("ssss444", data);
     login({ username: data?.username, password: data?.password });
-
+  };
+  console.log("errors", errors);
   return (
     <div className="flex items-center justify-center h-screen ">
-      <div className="w-full max-w-md p-8 border border-black rounded-md bg-gradient-to-br from-white via-gray-400 to-white">
-        <h1 className="text-3xl font-medium text-center text-white ">Login</h1>
+      <div className="w-full max-w-md p-8 border border-black rounded-md shadow-xl">
+        <h1 className="text-3xl font-medium text-center text-black ">Login</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Controller
             name="username"
@@ -90,13 +90,24 @@ const LoginForm = () => {
           />
 
           <LoadingButton
-            loadingPosition="start"
+            // loadingPosition="start"
             fullWidth
+            type="submit"
             // startIcon={<SaveIcon />}
             className="flex items-center mt-4 bg-black hover:bg-gray-900 text-white font-medium "
             loading={loading}
+            sx={{
+              backgroundColor: loading ? "gray" : "black",
+              "&:hover": {
+                backgroundColor: loading ? "gray" : "gray", // Adjust hover color as needed
+              },
+              color: "white",
+              "&.MuiButton-loading .MuiCircularProgress-circle": {
+                color: "white",
+              },
+            }}
           >
-            Submit
+            {loading ? "Loading" : "Submit"}
           </LoadingButton>
         </form>
         <p className=" text-center my-4 font-bold">Or</p>
@@ -105,7 +116,17 @@ const LoginForm = () => {
           fullWidth
           startIcon={<GitHubIcon />}
           className="flex items-center mt-4 bg-black hover:bg-gray-900 text-white font-medium "
-          loading={loading}
+          // loading={loading}
+          sx={{
+            backgroundColor: loading ? "gray" : "black",
+            "&:hover": {
+              backgroundColor: loading ? "gray" : "gray", // Adjust hover color as needed
+            },
+            color: "white",
+            "&.MuiButton-loading .MuiCircularProgress-circle": {
+              color: "white",
+            },
+          }}
         >
           Github
         </LoadingButton>{" "}
@@ -114,7 +135,17 @@ const LoginForm = () => {
           fullWidth
           startIcon={<LinkedInIcon />}
           className="flex items-center mt-4 bg-blue-500 hover:bg-gray-900 text-white font-medium "
-          loading={loading}
+          // loading={loading}
+          sx={{
+            backgroundColor: loading ? "gray" : "blue",
+            "&:hover": {
+              backgroundColor: loading ? "blue" : "blue", // Adjust hover color as needed
+            },
+            color: "white",
+            "&.MuiButton-loading .MuiCircularProgress-circle": {
+              color: "white",
+            },
+          }}
         >
           LinkedIn
         </LoadingButton>

@@ -2,6 +2,7 @@
 // "use client";
 import { createContext, useContext, useState } from "react";
 import { login as apiLogin } from "../api/api";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 
@@ -12,11 +13,16 @@ const AuthProvider = ({ children }) => {
     isBrowser ? localStorage.getItem("token") || null : null
   );
   const [loading, setLoading] = useState(false);
+  console.log("load", loading);
 
-  const login = async (username, password) => {
+  const login = async ({ username, password }) => {
+    setLoading(true);
+
+    console.log("eeee", username, password);
     try {
       setLoading(true);
       const token = await apiLogin(username, password);
+      console.log("token", token);
       localStorage.setItem("token", token);
       setToken(token);
       setLoading(false);
@@ -29,6 +35,7 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
+    toast.success("You have successfully logged out!");
   };
 
   return (

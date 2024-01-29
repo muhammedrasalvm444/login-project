@@ -2,6 +2,8 @@
 import NavBar from "@/components/NavBar";
 import { AuthProvider } from "@/context/authContext";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -16,6 +18,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           {" "}
           <NavBar />
+          <ToastContainer />
           {children}{" "}
         </AuthProvider>
       </body>
