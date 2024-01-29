@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building server-side rendered applications.
+- **React Hook Form**: A library for managing forms and form validation in React.
+- **Material-UI (MUI)**: A React UI framework with a set of components following Google's Material Design.
+- **Tailwind CSS**: A utility-first CSS framework used for styling.
+- **Axios**: A promise-based HTTP client for making requests to your server or external APIs.
+- **Context API**: React's Context API for state management.
+
+## Installation
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/muhammedrasalvm444/login-project.git
+   ```
