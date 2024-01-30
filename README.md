@@ -43,7 +43,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - **Tailwind CSS**: A utility-first CSS framework used for styling.
 - **Axios**: A promise-based HTTP client for making requests to your server or external APIs.
 - **Context API**: React's Context API for state management.
-
+credentials
+ username: 'kminchelle',
+password: '0lelplR',
 ## Installation
 
 1. **Clone the Repository:**
